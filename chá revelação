@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chá Revelação</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f8f9fa, #dce0e6);
+      overflow: hidden;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .btn {
+      background-color: #25D366;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      margin: 20px 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    #balloons {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 40px;
+      height: 60px;
+      background-color: pink;
+      border-radius: 50% 50% 50% 50%;
+      animation: floatUp 10s infinite ease-in;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-110vh); }
+    }
+  </style>
+</head>
+<body>
+  <div id="balloons"></div>
+
+  <h1>Você foi convidado para o nosso Chá Revelação!</h1>
+  <p>Estamos muito felizes em compartilhar esse momento especial com você.</p>
+
+  <a class="btn" href="https://wa.me/5534992460940?text=Confirmo+minha+presen%C3%A7a+no+Ch%C3%A1+Revela%C3%A7%C3%A3o!" target="_blank">Confirmar com o Papai</a>
+  <a class="btn" href="https://wa.me/5534992221773?text=Confirmo+minha+presen%C3%A7a+no+Ch%C3%A1+Revela%C3%A7%C3%A3o!" target="_blank">Confirmar com a Mamãe</a>
+
+  <p>Ou escaneie o QR Code abaixo para acessar este convite:</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://meusite.com/cha-revelacao" alt="QR Code do convite">
+
+  <script>
+    const colors = ['#ff69b4', '#add8e6', '#ffc0cb', '#87ceeb'];
+    const balloonsContainer = document.getElementById('balloons');
+
+    for (let i = 0; i < 25; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.left = Math.random() * 100 + '%';
+      balloon.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      balloonsContainer.appendChild(balloon);
+    }
+  </script>
+</body>
+</html>
